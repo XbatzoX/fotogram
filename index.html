@@ -6,9 +6,19 @@
     <title>My Fotogram</title>
     <link rel="icon" type="image/x-icon" href="./img/favicon.svg">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
 </head>
-<body>
-    
+<body onload="implementImages()">
+    <header class="color-header-footer">
+        <img class="header-logo" src="./img/Fotogram_Logo.svg" alt="Fotogram logo">
+    </header>
+    <main class="color-main">
+        <h1>Your personal photo album</h1>
+        <div id="img-container"></div>
+    </main>
+    <footer class="color-header-footer">
+        <img id="footer-logo" src="./img/favicon.png" alt="logo of fotogram">
+        <span>Copyright &copy; 2025 My Fotogram</span>
+    </footer>
 </body>
+    <script src="./script.js"></script>
 </html>
