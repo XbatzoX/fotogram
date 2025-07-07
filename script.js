@@ -5,6 +5,15 @@ let myAlt = ["bottle with honey", "beautiful forest", "river flows over stones",
     "a view of field with paths", "a view of a tree in fall"];
 
 
+function overlayOn(event){
+    document.getElementById('overlay').style.display = "block";
+    event.stopPropagation();
+}
+
+function overlayOff(){
+    document.getElementById('overlay').style.display = "none";
+}
+
 function implementImages(){
     let contentRef = document.getElementById('img-container');
     for (let index = 0; index < myImgs.length; index++) {
@@ -13,5 +22,5 @@ function implementImages(){
 }
 
 function renderImages(i){
-   return  `<img class="img-main-page" src=${myImgs[i]} alt=${myAlt[i]}>`;
+   return  `<img class="img-main-page" onclick="overlayOn(event)" src=${myImgs[i]} alt=${myAlt[i]}>`;
 }
