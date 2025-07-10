@@ -80,8 +80,29 @@ footer{
     height: 70%;
     width: 50%;
     background-color:rgb(15, 84, 106);
+    padding: 24px;
     border-radius: 10px;
     position: fixed;
     top: 15%;
     left: 25%;
+}
+
+#title{
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-title{
+    padding: 8px;
+}
+
+.cross-close{
+    padding: 8px;
+}
+
+.cross-close:hover{
+    cursor: pointer;
+    background-color: rgb(255,255,255,0.1);
 }
