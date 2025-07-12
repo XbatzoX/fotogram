@@ -84,7 +84,7 @@ footer{
     border-radius: 10px;
     position: fixed;
     top: 15%;
-    left: 25%;
+    left: 23%;
 }
 
 .content-overlay{
@@ -133,4 +133,105 @@ footer{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+@media(max-width:800px){
+    .header-logo{
+        height: 24px;
+        width: auto;
+        padding-top: 8px;
+        padding-left: 24px;
+        padding-bottom: 12px;
+    }
+
+    h1{
+        padding-top: 24px;
+        font-size: 24px;
+    }
+
+    #img-container{
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    #footer-logo{
+        height: 32px;
+        width: 32px;
+        font-size: 10px;
+    }
+
+    .img-overlay{
+        height: 200px;
+    }
+}
+
+/* @media(max-width:675px){
+    .img-overlay{
+        height: 250px;
+    }
+} */
+
+@media(max-width:578px){
+    #img-container{
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .img-overlay{
+        height: 200px;
+    }
+
+    #overlay{
+        padding: 16px;
+        height: 50%;
+        top: 25%;
+    }
+
+    #title{
+        font-size: 20px;
+    }
+
+    .arrow{
+        font-size: 32px !important;
+    }
+
+    #actions{
+        font-size: 12px;
+    }
+}
+
+@media(max-width:468px){
+    .header-logo{
+        height: 18px;
+    }
+
+    h1{
+        padding-top: 16px;
+        font-size: 18px;
+    }
+
+    #img-container{
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .img-overlay{
+        height: 150px;
+    }
+
+    #overlay{
+        height: 40%;
+        top: 30%;
+    }
+
+    #title{
+        font-size: 16px;
+    }
+}
+
+@media(max-width:356px){
+    .img-main-page{
+        height: 150px;
+        width: 150px;
+    }
 }
