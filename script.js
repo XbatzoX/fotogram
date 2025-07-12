@@ -3,7 +3,8 @@ let myImgs = ["./img/honey.jpg", "./img/forest.jpg", "./img/river.jpg", "./img/b
 let myAlt = ["bottle with honey", "beautiful forest", "river flows over stones", "a bird an a lake", "a view of mountains",
     "grasshopper and leaf on a table", "a spider in the middle of the net", "a sitting rhino", "a view of an owl", "a picture of a new plant",
     "a view of field with paths", "a view of a tree in fall"];
-let cross;
+let loadedImageNumber;
+//let cross;
 //let overlayBool;
 
 // Display on/off of overlay
@@ -20,12 +21,12 @@ function overlayOn(event, imgNumber){
 
 function overlayOff(){
     document.getElementById('overlay').style.display = "none";
-    cross = false;
+    //cross = false;
     //overlayBool = false;  
 }
 
 function clickOnCross(){
-    cross = true;
+    //cross = true;
     overlayOff();
 }
 
@@ -91,6 +92,9 @@ function actionsOnOverlay(i){
     let imgCount = myImgs.length;
     let contentActionsRef;
 
+    //global Info of actual loaded Image number if overlay displayed
+    loadedImageNumber = i;
+
     // render actions on overlay
     contentActionsRef = document.getElementById('actions');
     contentActionsRef.innerHTML = renderActionsOnOverlay(actualImg, imgCount);
@@ -98,7 +102,34 @@ function actionsOnOverlay(i){
 
 // render function (template) for actions
 function renderActionsOnOverlay(i, maxNumber){
-    return `<i class="material-icons arrow">arrow_left</i>
+    return `<i class="material-icons arrow" onclick="nextImageLeft()">arrow_left</i>
             <span>${i} / ${maxNumber}</span>
-            <i class="material-icons arrow">arrow_right</i>`;
+            <i class="material-icons arrow" onclick="nextImageRight()">arrow_right</i>`;
+}
+
+// functions for load new image on overlay
+function nextImageRight(){
+    if(loadedImageNumber >= (myImgs.length - 1)){
+        loadedImageNumber = 0;    
+    }
+    else{
+        loadedImageNumber++;
+    }
+    // render Elements on overlay
+    titleOnOverlay(loadedImageNumber);
+    picOnOverlay(loadedImageNumber);
+    actionsOnOverlay(loadedImageNumber);
+}
+
+function nextImageLeft(){
+    if(loadedImageNumber <= 0){
+        loadedImageNumber = (myImgs.length - 1);
+    }
+    else{
+        loadedImageNumber--;
+    }
+    // render Elements on overlay
+    titleOnOverlay(loadedImageNumber);
+    picOnOverlay(loadedImageNumber);
+    actionsOnOverlay(loadedImageNumber);
 }
