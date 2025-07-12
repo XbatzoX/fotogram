@@ -4,6 +4,7 @@ let myAlt = ["bottle with honey", "beautiful forest", "river flows over stones",
     "grasshopper and leaf on a table", "a spider in the middle of the net", "a sitting rhino", "a view of an owl", "a picture of a new plant",
     "a view of field with paths", "a view of a tree in fall"];
 let cross;
+//let overlayBool;
 
 // Display on/off of overlay
 function overlayOn(event, imgNumber){
@@ -11,19 +12,26 @@ function overlayOn(event, imgNumber){
     document.getElementById('overlay').style.display = "block";
     event.stopPropagation();
 
+    // render Elements on overlay
     titleOnOverlay(number);
+    picOnOverlay(number);
+    actionsOnOverlay(number);
 }
 
 function overlayOff(){
-    if(cross){
-        document.getElementById('overlay').style.display = "none";
-        cross = false;
-    }
+    document.getElementById('overlay').style.display = "none";
+    cross = false;
+    //overlayBool = false;  
 }
 
 function clickOnCross(){
     cross = true;
     overlayOff();
+}
+
+function clickOnOverlay(event){
+    //overlayBool = true;
+    event.stopPropagation();
 }
 
 // Render Images on main of index.html
@@ -55,9 +63,42 @@ function titleOnOverlay(i){
     
 }
 
+// render function (template) for title 
 function renderTitleOnOverlay(text){
     return `<span class="img-title">${text}</span>
             <span class="cross-close" onclick="clickOnCross()">x</span>`;
 }
 
 // Implement Image on overlay
+function picOnOverlay(i){
+    let img = myImgs[i];
+    let alt = myAlt[i]
+    let contentPictureRef;
+
+    // render picture on overlay
+    contentPictureRef = document.getElementById('picture');
+    contentPictureRef.innerHTML = renderPictureOnOverlay(img, alt);
+}
+
+// render funtion (template) for picture
+function renderPictureOnOverlay(imgString, imgAlt){
+    return `<img class="img-overlay" src=${imgString} alt=${imgAlt}>`;
+}
+
+// Implement action-div on overlay
+function actionsOnOverlay(i){
+    let actualImg = (i + 1);
+    let imgCount = myImgs.length;
+    let contentActionsRef;
+
+    // render actions on overlay
+    contentActionsRef = document.getElementById('actions');
+    contentActionsRef.innerHTML = renderActionsOnOverlay(actualImg, imgCount);
+}
+
+// render function (template) for actions
+function renderActionsOnOverlay(i, maxNumber){
+    return `<i class="material-icons arrow">arrow_left</i>
+            <span>${i} / ${maxNumber}</span>
+            <i class="material-icons arrow">arrow_right</i>`;
+}

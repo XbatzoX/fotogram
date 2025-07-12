@@ -6,16 +6,19 @@
     <title>My Fotogram</title>
     <link rel="icon" type="image/x-icon" href="./img/favicon.svg">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body onload="implementImages()">
     <header class="color-header-footer">
         <img class="header-logo" src="./img/Fotogram_Logo.svg" alt="Fotogram logo">
     </header>
     <main class="color-main" onclick="overlayOff()">
-        <section id="overlay">
-            <div id="title"></div>
-            <div id="picture"></div>
-            <div id="actions"></div>
+        <section id="overlay" onclick="clickOnOverlay(event)">
+            <div class="content-overlay">
+                <div id="title"></div>
+                <div id="picture"></div>
+                <div id="actions"></div>
+            </div>
         </section>
         <h1>Your personal photo album</h1>
         <div id="img-container"></div>
